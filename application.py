@@ -18,16 +18,7 @@ application = Flask(__name__)
 
 
 list1=[]
-"""
-@application.route('/')
-def entry_point():
-    return render_template('index.html')
 
-
-
-@application.route('/trends')
-def entry_point1():
-    return render_template('trends.html')"""
 
 
 
@@ -115,20 +106,10 @@ def entry_point2():
                 list2.append(r['external_urls']['spotify'])
                 list2.append(r['name'])
                 
-                """
-                plt.figure(figsize=(15,int(0.625 * 4)))
-                image = io.imread(r['album']['images'][2]['url'])
-                plt.imshow(image)
-                plt.show()
-                """
+                
                 list2.append(r['album']['images'][2]['url'])
                 
-                """list3=[]
-                for i in range(len(r['artists'])):
-                    
-                    list3.append(['artists'][i]['name'])
-                    #list3.append(r['artists'][i]['external_urls']['spotify'])
-                list2.append(list3)"""
+                
                 list1.append(list2)
                 
         return render_template('index.html',  list1=list1)
