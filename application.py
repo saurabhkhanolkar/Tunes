@@ -26,7 +26,7 @@ list1=[]
 @application.route('/', methods=['GET','POST'])
 def entry_point2():
     try:
-        #list1=[]
+        list1=[]
         if request.method=='POST':
             
             engine=create_engine('mysql+pymysql://admin:12345678@database-1.cod1kdbr9qur.us-east-2.rds.amazonaws.com/Finaldb',echo=False)
