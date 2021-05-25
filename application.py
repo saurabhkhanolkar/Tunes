@@ -26,51 +26,46 @@ list1=[]
 @application.route('/', methods=['GET','POST'])
 def entry_point2():
     try:
-        try:
-            list1=[]
-            if request.method=='POST':
+        
+        list1=[]
+        if request.method=='POST':
 
-                engine=create_engine('mysql+pymysql://admin:12345678@database-1.cod1kdbr9qur.us-east-2.rds.amazonaws.com/Finaldb',echo=False)
+            engine=create_engine('mysql+pymysql://admin:12345678@database-1.cod1kdbr9qur.us-east-2.rds.amazonaws.com/Finaldb',echo=False)
 
-                df1=pd.read_sql_table('GLOBALCURRENT',engine)
-                #print(df1)
-        except:
-            print("2")
+            df1=pd.read_sql_table('GLOBALCURRENT',engine)
+            #print(df1)
+        
             
             
         
             
-            try:
-                if len(request.form)==1:
+            if len(request.form)==1:
+                song_url1=request.form['url']
+            elif len(request.form)==2:
+                if request.form['url']=='':    
+                    song_url1=request.form['url1']
+                else:
                     song_url1=request.form['url']
-                elif len(request.form)==2:
-                    if request.form['url']=='':    
-                        song_url1=request.form['url1']
-                    else:
-                        song_url1=request.form['url']
-           except:
-                print("3")
+          
              
                 
                 
-            try:
-                x=song_url1.split('/')
-                if x[-2]=='album':
-                    song_url=x[-1]
-                    y=song_url.split('?')
-                    song_url2=y[0]
-                    r=requestdata.pora_idalbum(song_url2)
-                    df=pd.DataFrame(r)
-                    #print(df)
-                elif x[-2]=='playlist':
-                    song_url=x[-1]
-                    y=song_url.split('?')
-                    song_url4=y[0]
-                    p=requestdata.pora_idplaylist(song_url4)
-                    df=pd.DataFrame(p)
-                    #print(df)
-            except:
-                print("4")
+            x=song_url1.split('/')
+            if x[-2]=='album':
+                song_url=x[-1]
+                y=song_url.split('?')
+                song_url2=y[0]
+                r=requestdata.pora_idalbum(song_url2)
+                df=pd.DataFrame(r)
+                #print(df)
+            elif x[-2]=='playlist':
+                song_url=x[-1]
+                y=song_url.split('?')
+                song_url4=y[0]
+                p=requestdata.pora_idplaylist(song_url4)
+                df=pd.DataFrame(p)
+                #print(df)
+            
             
             newdf=df1[['acousticness','danceability','duration_ms','energy','instrumentalness','liveness','loudness','speechiness','tempo','valence']]
             combined_df=newdf.append(df,ignore_index = True)
