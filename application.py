@@ -119,7 +119,7 @@ def entry_point2():
         
     except:
         print("1")
-        return render_template('trends.html')
+        return render_template('index.html')
 
 
 @application.route('/about')
