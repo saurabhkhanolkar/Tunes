@@ -4,6 +4,6 @@ MarkupSafe==1.1.1
 Werkzeug==0.15.5
 json5==0.9.5
 scikit-learn==0.24.2
-pandas==0.19
 requests==2.25.1
 SQLAlchemy==1.4.15
+pandas @ file:///C:/ci/pandas_1602083338010/work
