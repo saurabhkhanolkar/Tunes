@@ -26,12 +26,14 @@ list1=[]
 @application.route('/', methods=['GET','POST'])
 def entry_point2():
     try:
+        print("entered try")
         
         list1=[]
         if request.method=='POST':
+            print("entered post")
 
             engine=create_engine('mysql+pymysql://admin:12345678@database-1.cod1kdbr9qur.us-east-2.rds.amazonaws.com/Finaldb',echo=False)
-
+            print("entered engine")
             df1=pd.read_sql_table('GLOBALCURRENT',engine)
             print(df1)
         
