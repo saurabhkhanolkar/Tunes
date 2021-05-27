@@ -32,10 +32,10 @@ def entry_point2():
         if request.method=='POST':
             
 
-            engine=create_engine('mysql+pymysql://admin:12345678@database-1.cod1kdbr9qur.us-east-2.rds.amazonaws.com/Finaldb',echo=False)
+            #engine=create_engine('mysql+pymysql://admin:12345678@database-1.cod1kdbr9qur.us-east-2.rds.amazonaws.com/Finaldb',echo=False)
             
-            df1=pd.read_sql_table('GLOBALCURRENT',engine)
-            #df1=pd.read_csv('data2.csv')
+            #df1=pd.read_sql_table('GLOBALCURRENT',engine)
+            df1=pd.read_csv('data2.csv')
         
             
             
